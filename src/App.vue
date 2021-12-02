@@ -1,55 +1,51 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+  <v-card
+    class="mx-auto overflow-hidden"
+    height="400"
+  >
+    <v-app>
+      <v-app-bar
+        app
+        dark
+        color="green"
+        elevation="4"
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+        <v-toolbar-title>Contador de Pessoas</v-toolbar-title>
+      </v-app-bar>
+      <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        temporary
+      >
+        <v-list nav dense>
+          <v-list-item-group
+            v-model="group"
+            active-class="red--text text--accent-4"
+          >
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>mdi-sync</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Contador</v-list-item-title>
+            </v-list-item>
 
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
+    </v-app>
+  </v-card>
 </template>
 
 <script>
-
-export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-};
+  export default {
+    data: () => ({
+      drawer: false,
+      group: null,
+    }),
+  }
 </script>
+
+<style scoped>
+
+</style>

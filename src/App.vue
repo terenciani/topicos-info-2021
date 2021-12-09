@@ -11,7 +11,7 @@
         elevation="4"
       >
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-        <v-toolbar-title>Contador de Pessoas</v-toolbar-title>
+        <v-toolbar-title>{{ $route.name }}</v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer
         v-model="drawer"
@@ -28,6 +28,12 @@
                 <v-icon>mdi-sync</v-icon>
               </v-list-item-icon>
               <v-list-item-title>Contador</v-list-item-title>
+            </v-list-item>
+            <v-list-item to="/noticias">
+              <v-list-item-icon>
+                <v-icon>mdi-newspaper</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Notícias</v-list-item-title>
             </v-list-item>
             <v-list-item to="/produtos">
               <v-list-item-icon>

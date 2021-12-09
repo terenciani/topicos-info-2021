@@ -23,16 +23,26 @@
             v-model="group"
             active-class="red--text text--accent-4"
           >
-            <v-list-item>
+            <v-list-item to="/contador">
               <v-list-item-icon>
                 <v-icon>mdi-sync</v-icon>
               </v-list-item-icon>
               <v-list-item-title>Contador</v-list-item-title>
             </v-list-item>
-
+            <v-list-item to="/produtos">
+              <v-list-item-icon>
+                <v-icon>mdi-gift</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Produtos</v-list-item-title>
+            </v-list-item>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
+      <v-main>
+        <v-container fill-height>
+          <router-view />
+        </v-container>
+      </v-main>
     </v-app>
   </v-card>
 </template>

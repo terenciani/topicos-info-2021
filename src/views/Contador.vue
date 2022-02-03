@@ -1,13 +1,25 @@
 <template>
   <div>
-    <h1>Quantidade de pessoas: {{ pessoas }}</h1>
-    <v-btn fab color="pink" dark @click="pessoas = pessoas + 1">
-      <v-icon> mdi-plus </v-icon>
-    </v-btn>
+    <v-row>
+      <v-col cols="12">
+        <v-card elevation="14" class="pa-5">
+          <v-card-title>Quantidade de pessoas: {{ pessoas }}</v-card-title>
+        </v-card>
+      </v-col>
+    </v-row>
 
-    <v-btn fab color="purple" dark>
-      <v-icon> mdi-minus </v-icon>
-    </v-btn>
+    <v-row>
+      <v-col cols="6">
+        <v-btn block color="pink" dark @click="incremento">
+          <v-icon> mdi-plus </v-icon>
+        </v-btn>
+      </v-col>
+      <v-col cols="6">
+        <v-btn block color="purple" dark @click="decremento">
+          <v-icon> mdi-minus </v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -16,6 +28,15 @@ export default {
   data: () => ({
     pessoas: 0,
   }),
+  methods: {
+    incremento() {
+      this.pessoas = this.pessoas + 1;
+    },
+
+    decremento() {
+      if (this.pessoas > 0) this.pessoas = this.pessoas - 1;
+    },
+  },
 };
 </script>
 
